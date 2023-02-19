@@ -2,6 +2,12 @@
 <html> 
   <head>
     <title>E C O - S I M</title> 
+    <style>
+    
+    canvas {
+    	zoom: 200%;
+    }
+    </style>
   </head>
   <body>
 	<!--This draws the canvas on the webpage -->
@@ -78,7 +84,7 @@ button(width-20, height-20, 40, "H", function() {gameScene = 'home';}, "info");
 mouseClicked = function() {
     for (var i = 0; i < buttons.length; i++) {
         if (gameScene !== buttons[i].s) {continue;}
-        if (dist(mouseX, mouseY, buttons[i].x, buttons[i].y) < buttons[i].r/2 && gameScene === buttons[i].s) {
+        if (dist(mouseX/2, mouseY/2, buttons[i].x, buttons[i].y) < buttons[i].r/2 && gameScene === buttons[i].s) {
             buttons[i].f();
         }
     }
@@ -263,7 +269,7 @@ keyPressed = function() {
 button(width/2, 480, 200, "Let's Go!", function() {resetGame(); gameScene = 'play';}, "home");
 
 draw = function() {
-    
+    println(mouseX);
     textAlign(CENTER, CENTER);
     if (gameScene === 'home') {
         background(200);
