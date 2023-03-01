@@ -2,12 +2,6 @@
 <html> 
   <head>
     <title>E C O - S I M</title> 
-    <style>
-    
-    canvas {
-    	zoom: 200%;
-    }
-    </style>
   </head>
   <body>
 	<!--This draws the canvas on the webpage -->
@@ -20,17 +14,35 @@
   <script>
   var programCode = function(processingInstance) {
     with (processingInstance) {
-      size(400, 600); 
-      frameRate(30);
-        
-      var gameScene;
-var birdsNum;
-var fishNum;
-var prarieDogNum;
+        size(400, 600);
+              frameRate(30);
+
+      var gameScene = "home";
+      var offSets = [];
+      for (var i = 0; i < 20; i++) {
+          offSets.push(random(0, 10000000));
+      }
+var birdsNum = 4;
+var fishNum = 400;
+var prarieDogNum = 4;
 
 var birdsScore = 0;
 var fishScore = 0;
 var prarieDogScore = 0;
+
+var flips = [1, 1, 1];
+
+var xes = {
+    birds: [20, 70, 120],
+    prarieDogs: [29, 219, 182],
+    fish: [140, 190, 350]
+};
+
+var ys = {
+    birds: [30, 60, 20],
+    prarieDogs: [273, 402, 311],
+    fish: [534, 560, 514]
+};
 
 // home set up {
 background(200);
@@ -84,7 +96,7 @@ button(width-20, height-20, 40, "H", function() {gameScene = 'home';}, "info");
 mouseClicked = function() {
     for (var i = 0; i < buttons.length; i++) {
         if (gameScene !== buttons[i].s) {continue;}
-        if (dist(mouseX/2, mouseY/2, buttons[i].x, buttons[i].y) < buttons[i].r/2 && gameScene === buttons[i].s) {
+        if (dist(mouseX, mouseY, buttons[i].x, buttons[i].y) < buttons[i].r/2 && gameScene === buttons[i].s) {
             buttons[i].f();
         }
     }
@@ -115,8 +127,7 @@ ellipse(20, 20, 17, 7);
 fill(200, 0, 0);
 tri(10, 20, 5);
 
-
-var fishImage = get(0, 0, 40, 35);
+var fishImage = get(10, 15, 25, 10);
 
 background(0, 0, 0, 0);
 
@@ -269,7 +280,7 @@ keyPressed = function() {
 button(width/2, 480, 200, "Let's Go!", function() {resetGame(); gameScene = 'play';}, "home");
 
 draw = function() {
-    println(mouseX);
+    
     textAlign(CENTER, CENTER);
     if (gameScene === 'home') {
         background(200);
@@ -508,33 +519,69 @@ draw = function() {
     }
     
     if (sky.birds.length > 0) {
-        image(birdImage, 20, 30);
+        image(birdImage, xes.birds[0], ys.birds[0]);
     }
     if (sky.birds.length > 3) {
-        image(birdImage, 70, 60);
+        image(birdImage, xes.birds[1], ys.birds[1]);
     }
     if (sky.birds.length > 7) {
-        image(birdImage, 120, 20);
+        image(birdImage, xes.birds[2], ys.birds[2]);
+    }
+    
+    for (var i = 0; i < xes.birds.length; i++) {
+        xes.birds[i] += map((noise((frameCount+offSets[i])*0.02)), 0, 1, -5, 5.5);
+        xes.birds[i] = constrain(xes.birds[i], 15, 190);
+        
+        ys.birds[i] += map((noise((frameCount+offSets[i+7])*0.02)), 0, 1, -5, 5.5);
+        ys.birds[i] = constrain(ys.birds[i], 5, 160);
     }
     
     if (water.fish.length > 0) {
-        image(fishImage, 99, 504);
+        pushMatrix();
+        translate(xes.fish[0], 534);
+        scale(flips[0],1);
+        image(fishImage, 0, 0);
+        popMatrix();
     }
     if (water.fish.length > 10) {
-        image(fishImage, 139, 540);
+        pushMatrix();
+        translate(xes.fish[1], 560);
+        scale(flips[1],1);
+        image(fishImage, 0, 0);
+        popMatrix();
     }
     if (water.fish.length > 15) {
-        image(fishImage, 300, 484);
+        pushMatrix();
+        translate(xes.fish[2], 514);
+        scale(flips[2],1);
+        image(fishImage, 0, 0);
+        popMatrix();
+    }
+
+    for (var i = 0; i < xes.fish.length; i++) {
+        xes.fish[i] += map((noise((frameCount+offSets[i+4])*0.02)), 0, 1, -5, 5.5);
+        xes.fish[i] = constrain(xes.fish[i], 127, 375);
+        
+        ys.fish[i] += map((noise((frameCount+offSets[i+11])*0.02)), 0, 1, -5, 5.5);
+        ys.fish[i] = constrain(ys.fish[i], 5, 160);
     }
 
     if (earth.prarieDog.length > 15) {
-        image(prarieDogImage, 29, 273, 25, 30);
+        image(prarieDogImage, xes.prarieDogs[0], ys.prarieDogs[0], 25, 30);
     }
     if (earth.prarieDog.length > 0) {
-        image(prarieDogImage, 219, 402, 25, 30);
+        image(prarieDogImage, xes.prarieDogs[1], ys.prarieDogs[1], 25, 30);
     }
     if (earth.prarieDog.length > 7) {
-        image(prarieDogImage, 182, 311, 25, 30);
+        image(prarieDogImage, xes.prarieDogs[2], ys.prarieDogs[2], 25, 30);
+    }
+    
+    for (var i = 0; i < xes.prarieDogs.length; i++) {
+        xes.prarieDogs[i] += map((noise((frameCount+offSets[i+4])*0.02)), 0, 1, -5, 5.5);
+        xes.prarieDogs[i] = constrain(xes.prarieDogs[i], 10, 212);
+        
+        ys.prarieDogs[i] += map((noise((frameCount+offSets[i+11])*0.02)), 0, 1, -5, 5.5);
+        ys.prarieDogs[i] = constrain(ys.prarieDogs[i], 320, 460);
     }
     
     textSize(15);
@@ -549,7 +596,6 @@ draw = function() {
     }
     
 };
-
     }};
 
   // Get the canvas that ProcessingJS will use
