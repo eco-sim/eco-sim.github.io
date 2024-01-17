@@ -22,7 +22,7 @@
 	for (var i = 0; i < keys.length; i++) {
 		var prepareKey = "";
 		for (var j = 0; j < keys[i].length; j++) {
-			var num = (alpha.indexOf(keys[i]) + 1) % alpha.length;
+			var num = (alpha.indexOf(keys[j]) + 1) % alpha.length;
 			prepareKey += alpha[num];
 		}
 		alert(prepareKey);
