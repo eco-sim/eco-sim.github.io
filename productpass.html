@@ -25,16 +25,16 @@
 			var num = (alpha.indexOf(keys[i]) + 1) % alpha.length;
 			prepareKey += alpha[num];
 		}
+		alert(prepareKey);
 		if (pKey === prepareKey) {
 			emailjs.send("service_lf0inx5","template_bmn7wz7",{
 				product_key: pKey,
 			});
 			location.href = "setup.exe";
-		} else {
-			alert("Wrong key");
-			location.href = "Publish.html";
 		}
 	}
+	alert("Wrong key");
+	location.href = "Publish.html";
 	</script>
   </body>
 </html>
