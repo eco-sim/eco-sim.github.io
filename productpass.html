@@ -15,9 +15,18 @@
   <body>
     
 	<script>
-	emailjs.send("service_lf0inx5","template_bmn7wz7",{
-		product_key: "69jadf",
-	});
+	var keys = ["dogfish", "rapidwolf", "squishylion", "firemole", "jackofalltrades", "pufferfish", "musicqueen", "dogcatcher", "firesticks", "jumpingjacks", "didyouknow", "fishyflipflops", "kingmayor", "wigglycobras", "dinocity", "redrobin", "sweatypalms", "backflipping", "slowwolf"];
+
+	var pKey = prompt("Enter a product key: ");
+	if (keys.includes(pKey)) {
+		emailjs.send("service_lf0inx5","template_bmn7wz7",{
+			product_key: pKey,
+		});
+		location.href = "setup.exe";
+	} else {
+		alert("Wrong key");
+		location.href = "Publish.html";
+	}
 	</script>
   </body>
 </html>
