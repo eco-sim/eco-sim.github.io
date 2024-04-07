@@ -1,0 +1,44 @@
+1. Introduction
+
+We at TextWizardPro are committed to protecting the privacy and security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard the information you provide to us when you use our software.
+
+2. Information We Collect
+
+When you use our software, we may collect the following types of personal information:
+
+Computer UUIDs: We may collect Universally Unique Identifiers (UUIDs) to uniquely identify your device for authentication and security purposes.
+Name: We may collect your name to personalize your user experience and communicate with you.
+Email Address: We may collect your email address to send important updates, notifications, and marketing communications related to our software.
+3. Use of Information
+
+We use the information we collect for the following purposes:
+
+To provide and maintain our software.
+To personalize your user experience and improve our software.
+To communicate with you, including sending important updates, notifications, and marketing communications.
+To detect, prevent, and address technical issues and security vulnerabilities.
+4. Data Security
+
+We take the security of your personal information seriously and implement appropriate technical and organizational measures to protect it against unauthorized access, disclosure, alteration, or destruction.
+
+5. Data Retention
+
+We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
+
+6. Sharing of Information
+
+We do not sell, trade, or otherwise transfer your personal information to third parties. However, we may share your information with trusted third-party service providers who assist us in operating our software and conducting our business, provided that they agree to keep your information confidential.
+
+7. Your Rights
+
+You have the right to access, correct, update, or delete your personal information at any time. You may also object to the processing of your personal information or request that we restrict the processing of your personal information in certain circumstances.
+
+8. Changes to this Privacy Policy
+
+We reserve the right to modify or update this Privacy Policy at any time. We will notify you of any changes by posting the new Privacy Policy on this page. Your continued use of our software after any modifications to this Privacy Policy will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
+
+9. Contact Us
+
+If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us at carson@couckama.net
+
+By using our software, you consent to the collection and use of your personal information as described in this Privacy Policy.
